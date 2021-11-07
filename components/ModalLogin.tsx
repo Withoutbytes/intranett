@@ -1,6 +1,6 @@
 import { XIcon } from "@heroicons/react/solid";
 import { useState } from "react";
-import { Permission } from "types/Permission";
+import { Role } from "types/Role";
 import { Transition } from "@tailwindui/react";
 
 interface IProps {
@@ -12,7 +12,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
-	const [permission, setPermission] = useState<Permission>("member");
+	const [permission, setPermission] = useState<Role>(Role.MEMBER);
 
 	const createUser = () => {
 		alert("todo");
@@ -20,7 +20,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 
 	return (
 		<Transition
-			className="fixed z-10 inset-0 overflow-y-auto"
+			className="fixed inset-0 z-10 overflow-y-auto"
 			show={isOpen}
 			enter="transition-opacity duration-75"
 			enterFrom="opacity-0"
@@ -30,7 +30,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 			leaveTo="opacity-0"
 		>
 			<div className="fixed inset-0 bg-[#000] bg-opacity-30 transition-all" aria-hidden="true">
-				<div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+				<div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
 					<div
 						className={
 							"inline-block align-bottom rounded-3xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-[421px]"
@@ -54,7 +54,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 									className="rounded-full w-[110px] mx-auto"
 								/>
 								<label className="flex flex-col gap-1">
-									<div className="justify-between flex">
+									<div className="flex justify-between">
 										<span className="text-base">Nome</span>
 										<span className="text-[#F5565C] text-sm">
 											<span className="text-bold">*</span> OBRIGATÓRIO
@@ -69,7 +69,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 									/>
 								</label>
 								<label className="flex flex-col gap-1">
-									<div className="justify-between flex">
+									<div className="flex justify-between">
 										<span className="text-base">E-mail</span>
 										<span className="text-[#F5565C] text-sm">
 											<span className="text-bold">*</span> OBRIGATÓRIO
@@ -84,7 +84,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 									/>
 								</label>
 								<label className="flex flex-col gap-1">
-									<div className="justify-between flex">
+									<div className="flex justify-between">
 										<span className="text-base">Senha</span>
 										<span className="text-[#F5565C] text-sm">
 											<span className="text-bold">*</span> OBRIGATÓRIO
@@ -99,7 +99,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 									/>
 								</label>
 								<label className="flex flex-col gap-1">
-									<div className="justify-between flex">
+									<div className="flex justify-between">
 										<span className="text-base">Permissão</span>
 										<span className="text-[#F5565C] text-sm">
 											<span className="text-bold">*</span> OBRIGATÓRIO

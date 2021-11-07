@@ -7,7 +7,7 @@ import {
 	ChevronDownIcon,
 } from "@heroicons/react/solid";
 import { Listbox, Transition } from "@headlessui/react";
-import { Permission } from "types/Permission";
+import { Role } from "types/Role";
 import { Select } from "@chakra-ui/select";
 
 interface IFieldError {
@@ -18,7 +18,7 @@ interface IFieldError {
 const Login: React.FC = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [permission, setPermission] = useState<Permission>("member");
+	const [permission, setPermission] = useState<Role>(Role.MEMBER);
 	const [fieldError, setFieldError] = useState<IFieldError>({
 		email: "Esse campo não pode estar vazio.",
 	});

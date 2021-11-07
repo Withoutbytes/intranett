@@ -1,9 +1,9 @@
-import { Permission } from "./Permission";
+import { Role } from "./Role";
 
 export interface IUserFE {
     _id: string;
     photo: string;
     name: string;
     email: string;
-    permission: Permission;
+    permission: Role;
 }
