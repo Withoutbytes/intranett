@@ -1,0 +1,52 @@
+<svg id="Switch_Dia_Noite" data-name="Switch Dia/Noite" xmlns="http://www.w3.org/2000/svg" width="99" height="19" viewBox="0 0 99 19">
+  <rect id="Retângulo_2" data-name="Retângulo 2" width="37" height="19" rx="9.5" transform="translate(24)" fill="#232a33"/>
+  <circle id="Elipse_1" data-name="Elipse 1" cx="6.5" cy="6.5" r="6.5" transform="translate(44 3)" fill="#713045"/>
+  <g id="Lua" transform="translate(30 4.348)">
+    <path id="Caminho_79" data-name="Caminho 79" d="M8.781,5.76a.316.316,0,0,0-.265.058,3.376,3.376,0,0,1-1.024.6,3.207,3.207,0,0,1-1.162.207A3.379,3.379,0,0,1,2.946,3.239,3.547,3.547,0,0,1,3.13,2.123a3.09,3.09,0,0,1,.552-.99A.294.294,0,0,0,3.637.719.316.316,0,0,0,3.372.661,4.644,4.644,0,0,0,.932,2.3,4.557,4.557,0,1,0,8.988,6.116.279.279,0,0,0,8.781,5.76Z" transform="translate(0 0)" fill="#fff"/>
+  </g>
+  <g id="Sol" transform="translate(44.25 3.25)" opacity="0">
+    <g id="Grupo_41" data-name="Grupo 41" transform="translate(10.566 5.935)">
+      <g id="Grupo_40" data-name="Grupo 40">
+        <path id="Caminho_81" data-name="Caminho 81" d="M252.543,140.8h-1.3a.44.44,0,1,0,0,.88h1.3a.44.44,0,0,0,0-.88Z" transform="translate(-250.8 -140.8)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_43" data-name="Grupo 43" transform="translate(5.935 10.566)">
+      <g id="Grupo_42" data-name="Grupo 42">
+        <path id="Caminho_82" data-name="Caminho 82" d="M141.24,250.8a.448.448,0,0,0-.44.44v1.3a.44.44,0,0,0,.88,0v-1.3A.448.448,0,0,0,141.24,250.8Z" transform="translate(-140.8 -250.8)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_45" data-name="Grupo 45" transform="translate(9.211 9.211)">
+      <g id="Grupo_44" data-name="Grupo 44">
+        <path id="Caminho_83" data-name="Caminho 83" d="M220.267,219.658l-.931-.931a.431.431,0,0,0-.609.609l.931.931a.431.431,0,1,0,.609-.609Z" transform="translate(-218.6 -218.6)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_47" data-name="Grupo 47" transform="translate(5.935)">
+      <g id="Grupo_46" data-name="Grupo 46">
+        <path id="Caminho_84" data-name="Caminho 84" d="M141.24,0a.448.448,0,0,0-.44.44v1.3a.44.44,0,0,0,.88,0V.44A.448.448,0,0,0,141.24,0Z" transform="translate(-140.8)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_49" data-name="Grupo 49" transform="translate(9.228 1.744)">
+      <g id="Grupo_48" data-name="Grupo 48">
+        <path id="Caminho_85" data-name="Caminho 85" d="M220.667,41.527a.429.429,0,0,0-.609,0l-.931.931a.431.431,0,1,0,.609.609l.931-.931A.429.429,0,0,0,220.667,41.527Z" transform="translate(-219 -41.4)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_51" data-name="Grupo 51" transform="translate(0 5.935)">
+      <g id="Grupo_50" data-name="Grupo 50">
+        <path id="Caminho_86" data-name="Caminho 86" d="M1.743,140.8H.44a.448.448,0,0,0-.44.44.437.437,0,0,0,.44.44h1.3a.44.44,0,0,0,0-.88Z" transform="translate(0 -140.8)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_53" data-name="Grupo 53" transform="translate(1.728 9.211)">
+      <g id="Grupo_52" data-name="Grupo 52">
+        <path id="Caminho_87" data-name="Caminho 87" d="M42.667,218.727a.429.429,0,0,0-.609,0l-.931.931a.431.431,0,1,0,.609.609l.931-.931A.429.429,0,0,0,42.667,218.727Z" transform="translate(-41 -218.6)" fill="#20c900"/>
+      </g>
+    </g>
+    <g id="Grupo_55" data-name="Grupo 55" transform="translate(1.728 1.744)">
+      <g id="Grupo_54" data-name="Grupo 54">
+        <path id="Caminho_88" data-name="Caminho 88" d="M42.667,42.458l-.931-.931a.431.431,0,1,0-.609.609l.931.931a.431.431,0,1,0,.609-.609Z" transform="translate(-41 -41.4)" fill="#20c900"/>
+      </g>
+    </g>
+    <circle id="Elipse_51" data-name="Elipse 51" cx="2.434" cy="2.434" r="2.434" transform="translate(4.166 3.659)" fill="#20c900"/>
+  </g>
+  <text id="Dia" transform="translate(0 14)" fill="#fff" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Dia</tspan></text>
+  <text id="Noite" transform="translate(67 14)" fill="#fff" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Noite</tspan></text>
+</svg>

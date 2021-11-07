@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30.773" height="21.774" viewBox="0 0 30.773 21.774">
+  <defs>
+    <filter id="Linha_12" x="0" y="0" width="30.773" height="21.774" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#713045"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Ícone" transform="translate(1.134 1.22)">
+    <g id="olho" transform="translate(0 0)">
+      <g id="Grupo_35" data-name="Grupo 35">
+        <g id="Grupo_34" data-name="Grupo 34">
+          <path id="Caminho_77" data-name="Caminho 77" d="M27.542,101.129c-.248-.339-6.148-8.294-13.683-8.294S.423,100.79.176,101.129a.915.915,0,0,0,0,1.079c.247.339,6.148,8.294,13.683,8.294s13.436-7.956,13.683-8.294A.914.914,0,0,0,27.542,101.129Zm-13.683,7.545c-5.551,0-10.358-5.28-11.781-7.006C3.5,99.94,8.3,94.663,13.859,94.663s10.358,5.279,11.781,7.006C24.219,103.4,19.422,108.674,13.859,108.674Z" transform="translate(0 -92.835)" fill="#d1d0d1"/>
+        </g>
+      </g>
+      <g id="Grupo_37" data-name="Grupo 37" transform="translate(8.376 3.351)">
+        <g id="Grupo_36" data-name="Grupo 36" transform="translate(0 0)">
+          <path id="Caminho_78" data-name="Caminho 78" d="M160.2,154.725a5.483,5.483,0,1,0,5.483,5.483A5.489,5.489,0,0,0,160.2,154.725Zm0,9.138a3.655,3.655,0,1,1,3.655-3.655A3.659,3.659,0,0,1,160.2,163.863Z" transform="translate(-154.722 -154.725)" fill="#d1d0d1"/>
+        </g>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -1.13, -1.22)" filter="url(#Linha_12)">
+      <line id="Linha_12-2" data-name="Linha 12" y1="18" x2="27" transform="translate(1.39 1.39)" fill="none" stroke="#d1d0d1" stroke-linecap="round" stroke-width="2" opacity="0"/>
+    </g>
+  </g>
+</svg>
