@@ -2,10 +2,11 @@ import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql';
 import jwt from "jsonwebtoken";
 import sha256 from 'crypto-js/sha256';
 
-import { LoginResponse } from 'types/LoginResponse';
+import { LoginResponse } from './loginResponse.type';
 import { User, UserModel } from './user.model';
 import { Context } from 'types/Context';
 import { UserJWT } from 'types/UserJWT';
+import { Role } from './role.type';
 
 
 
@@ -38,19 +39,18 @@ export class UserResolver {
         };
     }
 
-    @Authorized("ADMIN")
-    @Mutation(_returns => User)
-    async createUser(
+    @Mutation(_returns => User!)
+    async register(
+        @Arg('name', type => String) name: string,
         @Arg('email', type => String) email: string,
         @Arg('password', type => String) password: string,
+        @Arg('role', type => Role) role: Role,
     ) {
         const hashedPassword = sha256(password).toString();
-        const user = await UserModel.create({ email, password: hashedPassword, roles: ['USER'] });
-        await user.save();
+        const user = await UserModel.create({ email, password: hashedPassword, role, name });
 
         return user.toObject();
     }
-
 
     @Authorized("ADMIN")
     @Mutation(_returns => User!)
@@ -70,15 +70,14 @@ export class UserResolver {
         return user.toObject();
     }
 
-    @Authorized("ADMIN")
+    @Authorized()
     @Query(_returns => [User])
     async getUsers(): Promise<User[]> {
         const users = await UserModel.find();
         return users.map(user => user.toObject());
     }
 
-
-    @Authorized("USER")
+    @Authorized()
     @Query(_returns => User!)
     async getMe(
         @Ctx() { user }: Context

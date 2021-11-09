@@ -1,6 +1,5 @@
 import { XIcon } from "@heroicons/react/solid";
 import { useState } from "react";
-import { Role } from "types/Role";
 import { Transition } from "@tailwindui/react";
 
 interface IProps {
@@ -12,7 +11,7 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
-	const [permission, setPermission] = useState<Role>(Role.MEMBER);
+	const [permission, setPermission] = useState<string>("member");
 
 	const createUser = () => {
 		alert("todo");

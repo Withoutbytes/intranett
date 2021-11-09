@@ -108,7 +108,7 @@ const TasksTable: React.FC<ITasksTable> = ({ tasks: tasksParam }) => {
 								(t, i) => i >= pageNumber * maxItemsInPage && i < (pageNumber + 1) * maxItemsInPage
 							)
 							.map((t, i) => (
-								<tr className={classNames(i % 2 == 1 && "bg-[#1C1E27]")}>
+								<tr key={i} className={classNames(i % 2 == 1 && "bg-[#1C1E27]")}>
 									<td className="px-4 py-2">
 										<CheckBox
 											value={selectedItems[i]}
@@ -123,8 +123,9 @@ const TasksTable: React.FC<ITasksTable> = ({ tasks: tasksParam }) => {
 										{t.name}
 									</td>
 									<td className="px-4 py-2">
-										{t.responsible.map((r) => (
+										{t.responsible.map((r, i) => (
 											<img
+												key={i}
 												src={r.photo}
 												alt={r.name}
 												className="inline-block w-6 h-6 rounded-full"

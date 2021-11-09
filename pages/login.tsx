@@ -1,14 +1,6 @@
 import { useState } from "react";
 import ModalLogin from "components/ModalLogin";
-import {
-	ExclamationIcon,
-	ChevronLeftIcon,
-	ChevronRightIcon,
-	ChevronDownIcon,
-} from "@heroicons/react/solid";
-import { Listbox, Transition } from "@headlessui/react";
-import { Role } from "types/Role";
-import { Select } from "@chakra-ui/select";
+import { ExclamationIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 
 interface IFieldError {
 	email?: string;
@@ -18,13 +10,27 @@ interface IFieldError {
 const Login: React.FC = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [permission, setPermission] = useState<Role>(Role.MEMBER);
-	const [fieldError, setFieldError] = useState<IFieldError>({
-		email: "Esse campo não pode estar vazio.",
-	});
+	const [permission, setPermission] = useState<string>("member");
+	const [fieldError, setFieldError] = useState<IFieldError>({});
 	const [isModalOpen, setModalOpen] = useState(false);
 
 	const Login = () => {
+		if (email.length === 0) {
+			setFieldError({
+				...fieldError,
+				email: "Esse campo não pode estar vazio.",
+			});
+			return;
+		}
+		if (password.length === 0) {
+			setFieldError({
+				...fieldError,
+				password: "Esse campo não pode estar vazio.",
+			});
+			return;
+		}
+		setFieldError({});
+
 		alert("todo");
 	};
 
@@ -86,7 +92,6 @@ const Login: React.FC = () => {
 									<option value="member">Membro</option>
 									<option value="admin">Administrador</option>
 								</select>
-								<ChevronDownIcon className="z-20 float-right w-5 -mx-9" />
 							</div>
 						</label>
 						<button

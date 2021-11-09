@@ -1,4 +1,4 @@
-import { getModelForClass, prop, Ref } from "@typegoose/typegoose";
+import { getModelForClass, mongoose, prop, Ref } from "@typegoose/typegoose";
 import { isEmail } from "class-validator";
 import { ObjectId } from "mongoose";
 import { Field, ID, ObjectType } from "type-graphql";
@@ -7,12 +7,8 @@ import { User } from "../user/user.model";
 
 @ObjectType()
 export class Task {
-    @Field(_type => ID)
-    readonly _id: ObjectId;
-
-    // @Field(_type => String!)
-    // @prop({ required: true })
-    // description: string;
+    @Field(_type => ID!)
+    readonly _id: string;
 
     @Field(_type => String!)
     @prop({ required: true })
@@ -30,12 +26,12 @@ export class Task {
     @prop({ required: true })
     endAt: Date;
 
-    @Field(_type => User!)
-    @prop({ required: true })
-    createBy: Ref<User>;
+    @Field(_type => ID!)
+    @prop({ required: true, ref: User })
+    createdById: string;
 
-    @Field(_type => [User]!)
-    @prop({ required: true })
-    responsibles: Ref<User>[];
+    @Field(_type => [ID]!)
+    @prop({ required: true, ref: User })
+    responsiblesIds: string[];
 }
 export const TaskModel = getModelForClass(Task, { existingConnection: database });

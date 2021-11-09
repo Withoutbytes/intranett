@@ -18,7 +18,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -26,7 +26,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -34,7 +34,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -50,7 +50,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -58,7 +58,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -66,7 +66,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -82,7 +82,7 @@ const tasks: ITaskFE[] = [
 				_id: "dsa",
 				email: "adssdsaadsda",
 				name: "testdsadsae",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -90,7 +90,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddfd",
 				email: "ffff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -98,7 +98,7 @@ const tasks: ITaskFE[] = [
 				_id: "das",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -114,7 +114,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -122,7 +122,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -130,7 +130,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -146,7 +146,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -154,7 +154,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -162,7 +162,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -178,7 +178,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -186,7 +186,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -194,7 +194,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -210,7 +210,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -218,7 +218,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -226,7 +226,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -242,7 +242,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -250,7 +250,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -258,7 +258,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -274,7 +274,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -282,7 +282,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -290,7 +290,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -306,7 +306,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -314,7 +314,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -322,7 +322,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -338,7 +338,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -346,7 +346,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -354,7 +354,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -370,7 +370,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -378,7 +378,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -386,7 +386,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -402,7 +402,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -410,7 +410,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -418,7 +418,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -434,7 +434,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -442,7 +442,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -450,7 +450,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -466,7 +466,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -474,7 +474,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -482,7 +482,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -498,7 +498,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -506,7 +506,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -514,7 +514,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -530,7 +530,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -538,7 +538,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -546,7 +546,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -562,7 +562,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -570,7 +570,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -578,7 +578,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -594,7 +594,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "adssadsda",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -602,7 +602,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasddd",
 				email: "ff",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
@@ -610,7 +610,7 @@ const tasks: ITaskFE[] = [
 				_id: "adsasd",
 				email: "ggg",
 				name: "teste",
-				permission: "member",
+				permission: "MEMBER",
 				photo:
 					"https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
 			},
