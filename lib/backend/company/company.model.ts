@@ -4,13 +4,12 @@ import { database } from "../database";
 
 @ObjectType()
 export class Company {
-    @Field(() => ID)
-    @Prop({ required: true })
-    _id: string;
+	@Field(() => ID)
+	readonly _id: string;
 
-    @Field()
-    @Prop({ required: true })
-    name: string;
+	@Field()
+	@Prop({ required: true })
+	name: string;
 }
 
 export const CompanyModel = getModelForClass(Company, { existingConnection: database });

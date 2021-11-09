@@ -53,14 +53,14 @@ export class UserResolver {
     }
 
     @Authorized("ADMIN")
-    @Mutation(_returns => User!)
+    @Mutation(_returns => Boolean!)
     async deleteUser(@Arg('email', type => String) email: string) {
         const user = await UserModel.findOne({ email });
         if (!user) {
             throw new Error('User not found');
         }
         await UserModel.deleteOne({ email });
-        return user.toObject();
+        return true;
     }
 
     @Authorized("ADMIN")
