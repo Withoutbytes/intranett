@@ -5,6 +5,7 @@
 * Software de gestão de tarefas.
 * Projeto para a vaga back-end em Node.js, Intranett
 * Feito por: Jonathan, E-Mail: jonathan.santos1635@gmail.com
+* Projeto também está hospedado em: https://intranett.vercel.app/
   
 ## Deploy
 

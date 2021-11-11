@@ -8,7 +8,7 @@ import ModalNewTask from "components/ModalNewTask";
 import SidebarMenuViewTask from "components/SidebarMenuViewTask";
 
 import client from "lib/apolloClient";
-import { useGetMeQuery } from "lib/apolloDefinitions";
+import { useGetMeQuery, useCreateTaskMutation } from "lib/apolloDefinitions";
 
 import { useRouter } from "next/router";
 

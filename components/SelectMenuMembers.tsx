@@ -1,53 +1,43 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import {
-    CheckIcon,
-    SelectorIcon,
-    ChevronDownIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 import { classNames } from "lib/classNames";
 import CheckBox from "./table/CheckBox";
-import P from "pino";
+import { useGetUsersQuery } from "lib/apolloDefinitions";
+import client from "lib/apolloClient";
 
 interface IProps {
-    //  members: any[];
+    selectdsIds: string[];
+    onChange: (ids: string[]) => void;
 }
-const people = [
-    { id: 1, name: "Wade Cooper" },
-    { id: 2, name: "Arlene Mccoy" },
-    { id: 3, name: "Devon Webb" },
-    { id: 4, name: "Tom Cook" },
-    { id: 5, name: "Tanya Fox" },
-    { id: 6, name: "Hellen Schmidt" },
-];
 
-const SelectMenuMembers: React.FC<IProps> = ({}) => {
-    const [selecteds, setSelecteds] = useState([people[0]]);
+const SelectMenuMembers: React.FC<IProps> = ({ selectdsIds, onChange }) => {
+    const { data: getUsersData, loading: loadingGetUsers } = useGetUsersQuery({
+        client,
+    });
 
-    function isSelected(value) {
-        return selecteds.some((selected) => selected.id === value.id);
+    if (loadingGetUsers) {
+        return <div>Carregando...</div>;
     }
 
+    const isSelected = (id: string) => selectdsIds.includes(id);
+
     const handleSelecteds = (value) => {
-        if (selecteds.some((selected) => selected.id === value.id)) {
-            setSelecteds(
-                selecteds.filter((selected) => selected.id !== value.id)
-            );
+        if (selectdsIds.some((id) => id === value)) {
+            onChange(selectdsIds.filter((id) => id !== value));
         } else {
-            setSelecteds([...selecteds, value]);
+            onChange([...selectdsIds, value]);
         }
     };
 
-    console.log(selecteds);
-
     return (
         <div>
-            <Listbox value={selecteds} onChange={handleSelecteds}>
+            <Listbox value={selectdsIds} onChange={handleSelecteds}>
                 <div className="relative mt-1">
                     <Listbox.Button className="flex justify-around flex-row p-5 w-full py-2 pl-3 pr-10 text-left bg-[#0F1016] rounded-lg shadow-md cursor-default ">
-                        {selecteds.length > 0 ? (
+                        {selectdsIds.length > 0 ? (
                             <span className="">
-                                {selecteds.length} Selecionados
+                                {selectdsIds.length} Selecionados
                             </span>
                         ) : (
                             <span className="">Selecione um ou vários</span>
@@ -64,7 +54,7 @@ const SelectMenuMembers: React.FC<IProps> = ({}) => {
                         leaveTo="opacity-0"
                     >
                         <Listbox.Options className="justify-start flex flex-col px-5 text-left py-2 mt-1 overflow-auto text-base bg-[#0F1016] rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                            {people.map((person, personIdx) => (
+                            {getUsersData.getUsers.map((user, personIdx) => (
                                 <Listbox.Option
                                     key={personIdx}
                                     className={({ active }) =>
@@ -75,25 +65,25 @@ const SelectMenuMembers: React.FC<IProps> = ({}) => {
                                             "cursor-default select-none relative py-2 pr-4 "
                                         )
                                     }
-                                    value={person}
+                                    value={user._id}
                                 >
                                     {({ selected, active }) => (
                                         <div className="flex gap-2">
                                             <div>
                                                 <CheckBox
-                                                    value={isSelected(person)}
-                                                    onChange={() => null}
+                                                    value={isSelected(user._id)}
+                                                    onChange={(checked) => null}
                                                 />
                                             </div>
                                             <span
                                                 className={classNames(
-                                                    isSelected(person)
+                                                    isSelected(user._id)
                                                         ? "font-medium"
                                                         : "font-normal",
                                                     "block truncate text-white"
                                                 )}
                                             >
-                                                {person.name}
+                                                {user.email}
                                             </span>
                                         </div>
                                     )}

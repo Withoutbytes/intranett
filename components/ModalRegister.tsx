@@ -27,6 +27,7 @@ const ModalRegister: React.FC<IProps> = ({ isOpen, onClose }) => {
 
     const createUser = () => {
         if (!name || !email || !password) {
+            alert("Please fill out all fields");
             return;
         }
 

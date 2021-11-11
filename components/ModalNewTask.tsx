@@ -5,6 +5,9 @@ import { Transition } from "@tailwindui/react";
 import SelectMenuMembers from "./SelectMenuMembers";
 import moment from "moment";
 import Calendar from "./CustomCalendar";
+import { useCreateTaskMutation } from "lib/apolloDefinitions";
+import client from "lib/apolloClient";
+
 interface IProps {
     isOpen: boolean;
     onClose: () => void;
@@ -12,13 +15,22 @@ interface IProps {
 
 const ModalNewTask: React.FC<IProps> = ({ isOpen, onClose }) => {
     const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
     const [endDate, setEndDate] = useState(new Date());
     const [responsiblesIds, setResponsiblesIds] = useState<string[]>([]);
+    const [createTask] = useCreateTaskMutation({ client });
 
     const createUser = () => {
-        alert("todo");
+        createTask({
+            variables: {
+                data: { name, endAt: endDate, responsiblesIds },
+            },
+        })
+            .then(() => {
+                alert(`Task created successfully.`);
+            })
+            .catch((e) => {
+                alert(`Error creating task: ${e.message}.`);
+            });
     };
 
     return (
@@ -84,7 +96,10 @@ const ModalNewTask: React.FC<IProps> = ({ isOpen, onClose }) => {
                                         </span>{" "}
                                     </div>
 
-                                    <SelectMenuMembers />
+                                    <SelectMenuMembers
+                                        selectdsIds={responsiblesIds}
+                                        onChange={(n) => setResponsiblesIds(n)}
+                                    />
                                 </label>
                                 <label className="flex flex-col gap-1">
                                     <div className="flex flex-row w-full gap-3">
