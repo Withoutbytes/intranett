@@ -222,7 +222,7 @@ const TasksTable: React.FC<ITasksTable> = ({ onClickTask, fastFilter }) => {
                         }}
                         className="w-8 h-8 px-0 bg-[#22242E] text-center rounded-md"
                     />
-                    <span>de {maxPageNumber}</span>
+                    <span>de {maxPageNumber || 1}</span>
                 </div>
                 <button
                     className={classNames(

@@ -17,7 +17,10 @@ const ModalNewTask: React.FC<IProps> = ({ isOpen, onClose }) => {
     const [name, setName] = useState<string>("");
     const [endDate, setEndDate] = useState(new Date());
     const [responsiblesIds, setResponsiblesIds] = useState<string[]>([]);
-    const [createTask] = useCreateTaskMutation({ client });
+    const [createTask] = useCreateTaskMutation({
+        client,
+        refetchQueries: "active",
+    });
 
     const createUser = () => {
         createTask({
@@ -138,7 +141,7 @@ const ModalNewTask: React.FC<IProps> = ({ isOpen, onClose }) => {
                                 onClick={createUser}
                                 className="bg-[#805AD5] px-8 py-2 font-bold rounded-xl mt-5"
                             >
-                                Criar usuário
+                                Criar tarefa
                             </button>
                         </div>
                     </div>

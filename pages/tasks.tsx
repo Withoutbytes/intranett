@@ -6,11 +6,13 @@ import TasksTable from "components/table/TasksTable";
 import { FilterTask } from "types/FilterTask";
 import ModalNewTask from "components/ModalNewTask";
 import SidebarMenuViewTask from "components/SidebarMenuViewTask";
+import { Popover } from "@headlessui/react";
 
 import client from "lib/apolloClient";
 import { useGetMeQuery, useCreateTaskMutation } from "lib/apolloDefinitions";
 
 import { useRouter } from "next/router";
+import PopoverLogout from "components/PopoverLogout";
 
 const Tasks: React.FC = () => {
     const [filter, setFilter] = useState<FilterTask>("responsible");
@@ -18,7 +20,11 @@ const Tasks: React.FC = () => {
     const [sidebarMenuOpen, setSidebarMenuOpen] = useState(false);
     const [sidebarMenuTaskId, setSidebarMenuTaskId] = useState<string>(null);
 
-    const { error: meUserError, loading: loadingMe } = useGetMeQuery({
+    const {
+        data: getMeData,
+        error: meUserError,
+        loading: loadingMe,
+    } = useGetMeQuery({
         client,
     });
 
@@ -65,7 +71,10 @@ const Tasks: React.FC = () => {
                     <div className="flex flex-row w-full">
                         <div className="flex flex-row items-center gap-5">
                             <img
-                                src="/images/Avatar.png"
+                                src={
+                                    getMeData.getMe.image ||
+                                    "/images/Avatar.png"
+                                }
                                 alt="people"
                                 className="rounded-full w-7 h-7"
                             />
@@ -73,11 +82,15 @@ const Tasks: React.FC = () => {
                                 Minhas tarefas
                             </h1>
                         </div>
-                        <img
-                            src="/images/Avatar.png"
-                            alt="people"
-                            className="ml-auto rounded-full w-14 h-14"
-                        />
+                        <div className="ml-auto">
+                            <PopoverLogout>
+                                <img
+                                    src={"/images/Avatar.png"}
+                                    alt="people"
+                                    className="rounded-full w-14 h-14"
+                                />
+                            </PopoverLogout>
+                        </div>
                     </div>
                 </div>
                 <div className="flex flex-row text-[14px] gap-2 items-center">
