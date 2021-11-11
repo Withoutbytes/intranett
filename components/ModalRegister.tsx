@@ -1,6 +1,13 @@
 import { XIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Transition } from "@tailwindui/react";
+import client from "lib/apolloClient";
+import {
+    Role,
+    useRegisterMutation,
+    useLoginMutation,
+} from "lib/apolloDefinitions";
 
 interface IProps {
     isOpen: boolean;
@@ -11,10 +18,33 @@ const ModalRegister: React.FC<IProps> = ({ isOpen, onClose }) => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [permission, setPermission] = useState<string>("member");
+    const [permission, setPermission] = useState<Role>(Role.Member);
+
+    const [register] = useRegisterMutation({ client });
+    const [login] = useLoginMutation({ client });
+
+    const router = useRouter();
 
     const createUser = () => {
-        alert("todo");
+        if (!name || !email || !password) {
+            return;
+        }
+
+        register({ variables: { name, email, password, role: permission } })
+            .then(() => {
+                login({ variables: { email, password, role: permission } })
+                    .then(({ data }) => {
+                        localStorage.setItem("token", data.login.token);
+                        router.push("/tasks");
+                    })
+                    .catch((e) => {
+                        console.error({ e });
+                        alert("Error on login.");
+                    });
+            })
+            .catch((e) => {
+                alert("Error on creating user:" + e.message + ".");
+            });
     };
 
     return (
@@ -139,8 +169,10 @@ const ModalRegister: React.FC<IProps> = ({ isOpen, onClose }) => {
                                             setPermission(e.target.value as any)
                                         }
                                     >
-                                        <option value="member">Membro</option>
-                                        <option value="admin">
+                                        <option value={Role.Member}>
+                                            Membro
+                                        </option>
+                                        <option value={Role.Admin}>
                                             Administrador
                                         </option>
                                     </select>

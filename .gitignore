@@ -40,3 +40,5 @@ __generated__
 *.graphqls.d.ts
 
 yarn.lock
+
+data/

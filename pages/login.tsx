@@ -4,8 +4,8 @@ import {
     ChevronLeftIcon,
     ChevronRightIcon,
 } from "@heroicons/react/solid";
-import client from "lib/apolloClient";
 import ModalRegister from "components/ModalRegister";
+import client from "lib/apolloClient";
 import { Role, useGetMeQuery, useLoginMutation } from "lib/apolloDefinitions";
 
 import { useRouter } from "next/router";

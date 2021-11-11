@@ -1,4 +1,4 @@
-import { useEventListener } from "@chakra-ui/hooks";
+import useEventListener from "react-use-event-listener";
 import { classNames } from "lib/classNames";
 import moment from "moment";
 import React, { useState, useRef } from "react";
