@@ -44,7 +44,7 @@ const SelectMenuMembers: React.FC<IProps> = ({}) => {
         <div>
             <Listbox value={selecteds} onChange={handleSelecteds}>
                 <div className="relative mt-1">
-                    <Listbox.Button className="flex justify-around flex-row p-5 w-full py-2 pl-3 pr-10 text-left bg-[#0F1016] rounded-lg shadow-md cursor-default">
+                    <Listbox.Button className="flex justify-around flex-row p-5 w-full py-2 pl-3 pr-10 text-left bg-[#0F1016] rounded-lg shadow-md cursor-default ">
                         {selecteds.length > 0 ? (
                             <span className="">
                                 {selecteds.length} Selecionados
@@ -72,7 +72,7 @@ const SelectMenuMembers: React.FC<IProps> = ({}) => {
                                             active
                                                 ? "text-amber-900 bg-amber-100"
                                                 : "text-gray-900",
-                                            "cursor-default select-none relative py-2 pr-4"
+                                            "cursor-default select-none relative py-2 pr-4 "
                                         )
                                     }
                                     value={person}
@@ -90,7 +90,7 @@ const SelectMenuMembers: React.FC<IProps> = ({}) => {
                                                     isSelected(person)
                                                         ? "font-medium"
                                                         : "font-normal",
-                                                    "block truncate"
+                                                    "block truncate text-white"
                                                 )}
                                             >
                                                 {person.name}

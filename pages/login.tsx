@@ -1,10 +1,14 @@
 import { useState } from "react";
-import ModalLogin from "components/ModalLogin";
 import {
     ExclamationIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
 } from "@heroicons/react/solid";
+import client from "lib/apolloClient";
+import ModalRegister from "components/ModalRegister";
+import { Role, useGetMeQuery, useLoginMutation } from "lib/apolloDefinitions";
+
+import { useRouter } from "next/router";
 
 interface IFieldError {
     email?: string;
@@ -14,11 +18,20 @@ interface IFieldError {
 const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [permission, setPermission] = useState<string>("member");
+    const [permission, setPermission] = useState<Role>(Role.Member);
     const [fieldError, setFieldError] = useState<IFieldError>({});
     const [isModalOpen, setModalOpen] = useState(false);
 
-    const Login = () => {
+    const [login] = useLoginMutation({ client });
+    const { data: meUser } = useGetMeQuery({ client });
+
+    const router = useRouter();
+
+    if (meUser) {
+        router.push("/tasks");
+    }
+
+    const Login = async () => {
         if (email.length === 0) {
             setFieldError({
                 ...fieldError,
@@ -35,7 +48,20 @@ const Login: React.FC = () => {
         }
         setFieldError({});
 
-        alert("todo");
+        login({ variables: { email, password, role: permission } })
+            .then(({ data }) => {
+                localStorage.setItem("token", data.login.token);
+
+                setFieldError({});
+                router.push("/tasks");
+            })
+            .catch((e) => {
+                console.error({ e });
+                setFieldError({
+                    email: "E-mail ou senha incorretos.",
+                    password: "E-mail ou senha incorretos.",
+                });
+            });
     };
 
     const OpenModalCreateUser = () => {
@@ -108,8 +134,10 @@ const Login: React.FC = () => {
                                         setPermission(e.target.value as any)
                                     }
                                 >
-                                    <option value="member">Membro</option>
-                                    <option value="admin">Administrador</option>
+                                    <option value={Role.Member}>Membro</option>
+                                    <option value={Role.Admin}>
+                                        Administrador
+                                    </option>
                                 </select>
                             </div>
                         </label>
@@ -164,7 +192,7 @@ const Login: React.FC = () => {
                     </svg>
                 </div>
             </div>
-            <ModalLogin
+            <ModalRegister
                 isOpen={isModalOpen}
                 onClose={() => setModalOpen(false)}
             />

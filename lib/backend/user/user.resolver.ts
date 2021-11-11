@@ -16,6 +16,7 @@ export class UserResolver {
     async login(
         @Arg('email', type => String) email: string,
         @Arg('password', type => String) password: string,
+        @Arg('role', type => Role) role: Role,
     ) {
 
         const user = await UserModel.findOne({ email });
@@ -28,6 +29,11 @@ export class UserResolver {
             throw new Error('Invalid password');
         }
 
+        if (user.role != role) {
+            throw new Error('User role does not match');
+        }
+
+
         let jwtObj: UserJWT = {
             email: user.email,
             role: user.role,
@@ -39,7 +45,7 @@ export class UserResolver {
         };
     }
 
-    @Mutation(_returns => User!)
+    @Mutation(_returns => Boolean!)
     async register(
         @Arg('name', type => String) name: string,
         @Arg('email', type => String) email: string,
@@ -47,9 +53,8 @@ export class UserResolver {
         @Arg('role', type => Role) role: Role,
     ) {
         const hashedPassword = sha256(password).toString();
-        const user = await UserModel.create({ email, password: hashedPassword, role, name });
-
-        return user.toObject();
+        await UserModel.create({ email, password: hashedPassword, role, name });
+        return true;
     }
 
     @Authorized("ADMIN")

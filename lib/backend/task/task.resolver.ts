@@ -87,12 +87,12 @@ export class TaskResolver {
   }
 
   @Authorized()
-  @Mutation((_returns) => Task)
+  @Mutation((_returns) => Boolean!)
   async updateTask(
     @Arg("id", (_type) => ID) id: string,
     @Arg("data") data: TaskUpdateInput,
     @Ctx() ctx: Context
-  ): Promise<Task> {
+  ) {
     const task = await TaskModel.findById(id);
     if (!task) {
       throw new Error("Task not found");
@@ -103,9 +103,8 @@ export class TaskResolver {
     )
       throw new Error("You are not responsible for this task");
 
-    task.updateOne({ $set: data });
-    await task.save();
-    return task;
+    await task.updateOne({ $set: data });
+    return true;
   }
 
   @Authorized()

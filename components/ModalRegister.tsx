@@ -7,7 +7,7 @@ interface IProps {
     onClose: () => void;
 }
 
-const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
+const ModalRegister: React.FC<IProps> = ({ isOpen, onClose }) => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -160,4 +160,4 @@ const ModalLogin: React.FC<IProps> = ({ isOpen, onClose }) => {
     );
 };
 
-export default ModalLogin;
+export default ModalRegister;

@@ -2,14 +2,15 @@ import { useEventListener } from "@chakra-ui/hooks";
 import { classNames } from "lib/classNames";
 import moment from "moment";
 import React, { useState, useRef } from "react";
-import { ITaskFE } from "types/ITaskFE";
 import CheckBox from "components/table/CheckBox";
 import CheckBox2 from "./CheckBox2";
+import { useGetMeQuery, useTasksQuery } from "lib/apolloDefinitions";
+import client from "lib/apolloClient";
 import { FilterTask } from "types/FilterTask";
 
 interface ITasksTable {
-    tasks: ITaskFE[];
     fastFilter: FilterTask;
+    onClickTask: (id: string) => void;
 }
 
 interface IChecks {
@@ -18,24 +19,45 @@ interface IChecks {
 
 const maxItemsInPage = 11;
 
-const TasksTable: React.FC<ITasksTable> = ({ tasks: tasksParam }) => {
+const TasksTable: React.FC<ITasksTable> = ({ onClickTask, fastFilter }) => {
     const [searchByName, setSearchByName] = useState<string>("");
     const [searchByNameOpen, setSearchByNameOpen] = useState<boolean>(false);
     const inputSearchRef = useRef<HTMLInputElement>(null);
     const imgIconSearchRef = useRef<HTMLImageElement>(null);
     const [pageNumber, setPageNumber] = useState<number>(0);
 
-    const tasks = tasksParam.filter((e) =>
-        searchByNameOpen
-            ? e.name.toLowerCase().includes(searchByName.toLowerCase())
-            : true
-    );
+    const [selectedItems, setSelectedItems] = useState<IChecks>({});
+
+    const { data: tasksData, loading: loadingTasks } = useTasksQuery({
+        client,
+    });
+
+    const { data: getMe, loading: loadingGetMe } = useGetMeQuery({
+        client,
+    });
+
+    if (loadingTasks || loadingGetMe) return <p>Carregando...</p>;
+
+    const tasks = tasksData.getTasks
+        .filter((t) => {
+            switch (fastFilter) {
+                case "all":
+                    return true;
+                case "responsible":
+                    return t.responsibles.some(
+                        (r) => r.email == getMe.getMe.email
+                    );
+                case "my":
+                    return t.createdBy.email == getMe.getMe.email;
+            }
+        })
+        .filter((e) =>
+            searchByNameOpen
+                ? e.name.toLowerCase().includes(searchByName.toLowerCase())
+                : true
+        );
 
     const maxPageNumber = Math.ceil(tasks.length / maxItemsInPage);
-
-    const [selectedItems, setSelectedItems] = useState<IChecks>(
-        tasks.map((e) => false)
-    );
 
     const SetItem = (index: number, value: boolean) => {
         setSelectedItems((items) => ({ ...items, [index]: value }));
@@ -130,6 +152,7 @@ const TasksTable: React.FC<ITasksTable> = ({ tasks: tasksParam }) => {
                                     className={classNames(
                                         i % 2 == 1 && "bg-[#1C1E27]"
                                     )}
+                                    onClick={() => onClickTask("" + i)}
                                 >
                                     <td className="px-4 py-2">
                                         <CheckBox
@@ -152,17 +175,20 @@ const TasksTable: React.FC<ITasksTable> = ({ tasks: tasksParam }) => {
                                         {t.name}
                                     </td>
                                     <td className="px-4 py-2">
-                                        {t.responsible.map((r, i) => (
+                                        {t.responsibles.map((r, i) => (
                                             <img
                                                 key={i}
-                                                src={r.photo}
-                                                alt={r.name}
+                                                src={
+                                                    r.image ||
+                                                    "/images/Avatar.png"
+                                                }
+                                                alt={r.email}
                                                 className="inline-block w-6 h-6 rounded-full"
                                             />
                                         ))}
                                     </td>
                                     <td className="px-4 py-2">
-                                        {moment(t.date).format("DD/MM/YYYY")}
+                                        {moment(t.endAt).format("DD/MM/YYYY")}
                                     </td>
                                 </tr>
                             ))}

@@ -17,8 +17,12 @@ export class User {
     @prop({ required: true, default: Role.MEMBER, enum: Role, type: () => String })
     role: Role;
 
+    @Field(_type => String, { nullable: true })
+    @prop({ required: false })
+    image?: string;
+
     @Field(_type => String)
-    @prop({ required: true, unique: true, validate: isEmail })
+    @prop({ required: true, unique: true, validate: isEmail, index: true })
     email: string;
 }
 export const UserModel = getModelForClass(User, { existingConnection: database });

@@ -1,573 +1,41 @@
 import moment from "moment";
 import { useRef, useState } from "react";
-import { ITask } from "types/ITask";
-import { ITaskFE } from "types/ITaskFE";
 import { classNames } from "lib/classNames";
 import useEventListener from "react-use-event-listener";
 import TasksTable from "components/table/TasksTable";
 import { FilterTask } from "types/FilterTask";
 import ModalNewTask from "components/ModalNewTask";
+import SidebarMenuViewTask from "components/SidebarMenuViewTask";
 
-const tasks: ITaskFE[] = [
-    {
-        completed: false,
-        date: moment().add(1, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(3, "days").toDate(),
-        description: "Tarefaadssda com um teste, pronto para testar.",
-        name: "Tarefa 1adsdsa",
-        responsible: [
-            {
-                _id: "dsa",
-                email: "adssdsaadsda",
-                name: "testdsadsae",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddfd",
-                email: "ffff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "das",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-    {
-        completed: false,
-        date: moment().add(2, "days").toDate(),
-        description: "Tarefa com um teste, pronto para testar.",
-        name: "Tarefa 1",
-        responsible: [
-            {
-                _id: "adsasd",
-                email: "adssadsda",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasddd",
-                email: "ff",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-            {
-                _id: "adsasd",
-                email: "ggg",
-                name: "teste",
-                permission: "MEMBER",
-                photo: "https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-pt.jpg",
-            },
-        ],
-    },
-];
+import client from "lib/apolloClient";
+import { useGetMeQuery } from "lib/apolloDefinitions";
 
-const Login: React.FC = () => {
+import { useRouter } from "next/router";
+
+const Tasks: React.FC = () => {
     const [filter, setFilter] = useState<FilterTask>("responsible");
     const [isModalOpenNewTsaks, setModalOpenNewTsaks] = useState(false);
+    const [sidebarMenuOpen, setSidebarMenuOpen] = useState(false);
+    const [sidebarMenuTaskId, setSidebarMenuTaskId] = useState<string>(null);
+
+    const { error: meUserError, loading: loadingMe } = useGetMeQuery({
+        client,
+    });
+
+    const router = useRouter();
+
+    if (loadingMe) return <p>Carregando...</p>;
+    if (meUserError) {
+        router.push("/login");
+        return <p>Redirecionando para o login</p>;
+    }
 
     const CreateNewTask = () => {
         setModalOpenNewTsaks(true);
+    };
+
+    const onClickViewTask = (id: string) => {
+        setSidebarMenuOpen(true);
     };
 
     return (
@@ -657,15 +125,23 @@ const Login: React.FC = () => {
                     </button>
                 </div>
                 <div className="h-full overflow-y-scroll">
-                    <TasksTable tasks={tasks} fastFilter={filter} />
+                    <TasksTable
+                        onClickTask={onClickViewTask}
+                        fastFilter={filter}
+                    />
                 </div>
             </main>
             <ModalNewTask
                 isOpen={isModalOpenNewTsaks}
                 onClose={() => setModalOpenNewTsaks(false)}
             />
+            <SidebarMenuViewTask
+                open={sidebarMenuOpen}
+                taskId={sidebarMenuTaskId}
+                onClose={() => setSidebarMenuOpen(false)}
+            />
         </div>
     );
 };
 
-export default Login;
+export default Tasks;
