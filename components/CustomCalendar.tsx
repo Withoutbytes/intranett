@@ -1,4 +1,4 @@
-import { useEventListener } from "@chakra-ui/hooks";
+import useEventListener from "react-use-event-listener";
 import moment from "moment";
 import { useState } from "react";
 import { Calendar } from "react-date-range";

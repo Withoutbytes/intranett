@@ -14,9 +14,17 @@
 
 * Docker e Docker compose, https://docs.docker.com/desktop/windows/install/
   
-## Comandos de inicialização
+### Comandos de inicialização
 
-* docker-compose up
+#### Com docker
+
+* `docker-compose up`
+
+#### Sem docker (requer node 16 e yarn instalado)
+
+* `yarn`
+* `yarn build`
+* `yarn start`
 
 ## Váriaveis de ambiente
 
